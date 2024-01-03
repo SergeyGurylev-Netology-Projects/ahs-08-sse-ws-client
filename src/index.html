@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ahs-08-sse-ws-client</title>
+</head>
+<body>
+    <section id="chat" class="chat-container">
+
+        <form id="chat-form-login" class="chat-form-login">
+            <h3 class="chat-form-login--header">Выберите псевдоним</h3>
+            <input type="text" class="chat-form-login--input" name="name">
+            <div class="chat-form-login--input-tooltip">
+                <span>Tooltip text</span>
+            </div>
+            <div class="chat-form-login--control-panel">
+                <button type="submit" class="chat-form-login--submit-btn">Продолжить</button>
+            </div>
+        </form>
+
+        <div class="chat-data">
+            <div id="chat-users">
+                <ul class="chat-users--list">
+                </ul>
+            </div>
+            <div id="chat-messages" class="chat-messages-container">
+                <ul class="chat-messages--list">
+                    <li class="chat-messages--item" data-name="11">
+                    </li>
+                </ul>
+                <form id="chat-form-messages" class="chat-form-messages">
+                    <input type="text" class="chat-form-messages--input" name="message">
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
