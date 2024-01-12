@@ -4,7 +4,7 @@ import { markupLoginItem, markupMessageItem } from './markup';
 export default class Chat {
   constructor(url) {
     this.url = `https://${url}/`;
-    this.ws = new WebSocket(`ws://${url}//ws`);
+    this.ws = new WebSocket(`wss://${url}//ws`);
     this.myName = '';
 
     this.container = document.getElementById('chat');
