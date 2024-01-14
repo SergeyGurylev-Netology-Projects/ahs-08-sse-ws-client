@@ -1,0 +1,225 @@
+
+#chat {
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+}
+
+.chat-container {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+/*Form login*/
+
+.chat-form-login {
+    display: none;
+    position: fixed;
+    max-width: 23rem;
+    height: fit-content;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    padding: 1.5rem;
+    border: 1px gray solid;
+    border-radius: 1.2rem;
+    line-height: 1.5rem;
+    background-color: #fff;
+}
+
+.chat-form-login.visible {
+    display: block;
+}
+
+.chat-form-login--header {
+    text-align: center;
+    font-size: inherit;
+    font-weight: inherit;
+    margin: 0;
+    padding-bottom: 1.2rem;
+}
+
+.chat-form-login--input {
+    font: inherit;
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    border: 0;
+    outline: 1px gray solid;
+}
+
+.chat-form-login--input:focus {
+    outline: 2px #fa0 solid;
+}
+
+.chat-form-login--input.invalid {
+    background-color: #ffebc3;
+}
+
+.chat-form-login--input-tooltip {
+    display: none;
+    font-size: 0.8rem;
+    color: red;
+    text-align: center;
+}
+
+.chat-form-login--input-tooltip.visible {
+    display: block;
+}
+
+.chat-form-login--control-panel {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.chat-form-login--submit-btn {
+    font-size: inherit;
+    height: 2.5rem;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    border-radius: 0.7rem;
+    margin-left: 1rem;
+    background: none;
+    box-sizing: border-box;
+    border: 0;
+    outline: 1px gray solid;
+    cursor: pointer;
+}
+
+.chat-form-login--submit-btn:focus,
+.chat-form-login--submit-btn:hover {
+    /*outline-color: #fa0;*/
+    outline: 2px #fa0 solid;
+}
+
+.chat-form-login--submit-btn:active {
+    transform: scale(0.98);
+}
+
+/* Chat Data*/
+
+.chat-data {
+    display: none;
+}
+
+.chat-data.visible {
+    display: flex;
+}
+
+#chat-users {
+    /*display: flex;*/
+    min-height: 100px;
+    height: fit-content;
+    width: 35%;
+    margin-top: 50px;
+    border-left: 1px gray solid;
+    border-top: 1px gray solid;
+    border-bottom: 1px gray solid;
+    border-top-left-radius: 1.2rem;
+    border-bottom-left-radius: 1.2rem;
+}
+
+.chat-users--list,
+.chat-messages--list {
+    list-style: none;
+    padding: 0;
+}
+
+.chat-users--item {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.chat-users--item-icon {
+    display: flex;
+    height: 3rem;
+    width: 3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border: 1px gray solid;;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.chat-users--item-name {
+    display: flex;
+    height: 3rem;
+    align-items: center;
+}
+
+.chat-users--item-name.this-is-mine {
+    color: red;
+}
+
+#chat-messages {
+    min-height: 200px;
+    height: fit-content;
+    width: 65%;
+    border: 1px gray solid;
+    border-radius: 1.2rem;
+}
+
+.chat-messages--list {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    height: calc(100vh - 25rem);
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.chat-messages--list::-webkit-scrollbar {
+    width: 0.8rem;
+}
+
+.chat-messages--list::-webkit-scrollbar-thumb {
+    background-color: #c4c9cc;
+}
+
+.chat-messages--item {
+    display: block;
+    margin: 1rem;
+}
+
+.chat-messages--item-title {
+    display: block;
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem;
+}
+
+.chat-messages--item-title.this-is-mine {
+    color: red;
+    text-align: right;
+}
+
+.chat-messages--item-message.this-is-mine {
+    text-align: right;
+}
+
+.chat-messages--item-message {
+    display: block;
+}
+
+.chat-form-messages {
+    margin: 1rem;
+}
+.chat-form-messages--input {
+    font: inherit;
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    border-radius: 0.7rem;
+    border: 0;
+    outline: 1px gray solid;
+}
+
+.chat-form-messages--input:focus,
+.chat-form-messages--input:hover {
+    /*outline-color: #fa0;*/
+    outline: 2px #fa0 solid;
+}
+
