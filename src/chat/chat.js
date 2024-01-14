@@ -4,8 +4,9 @@ import { markupLoginItem, markupMessageItem } from './markup';
 export default class Chat {
   constructor(url) {
     this.url = `https://${url}/`;
-    this.ws = new WebSocket(`wss://${url}//ws`);
+    this.ws = new WebSocket(`wss://${url}/ws`);
     this.myName = '';
+    this.myPresentation = 'Вы';
 
     this.container = document.getElementById('chat');
     this.containerData = this.container.querySelector('.chat-data');
@@ -67,12 +68,17 @@ export default class Chat {
     listItem.classList.add('chat-users--item');
     listItem.innerHTML = markupLoginItem;
     listItem.dataset.name = data.name;
-    listItem.querySelector('.chat-users--item-name').textContent = data.name;
-    this.loginsList.appendChild(listItem);
+
+    const elementUserName = listItem.querySelector('.chat-users--item-name');
 
     if (data.name === this.myName) {
-      listItem.querySelector('.chat-users--item-name').classList.add('this-is-mine');
+      elementUserName.textContent = this.myPresentation;
+      elementUserName.classList.add('this-is-mine');
+    } else {
+      elementUserName.textContent = data.name;
     }
+
+    this.loginsList.appendChild(listItem);
   }
 
   removeLoginItem(data) {
@@ -90,20 +96,29 @@ export default class Chat {
   }
 
   addMessageItem(data) {
+    const messageDate = `${new Date(data.created).toLocaleTimeString()} ${new Date(data.created).toLocaleDateString()}`;
+
     const listItem = document.createElement('li');
     listItem.classList.add('chat-messages--item');
     listItem.innerHTML = markupMessageItem;
     listItem.dataset.id = data.id;
     listItem.dataset.name = data.name;
     listItem.dataset.created = data.created;
-    listItem.querySelector('.chat-messages--item-title').textContent = `${data.name}, ${new Date(data.created).toLocaleTimeString()} ${new Date(data.created).toLocaleDateString()}`;
-    listItem.querySelector('.chat-messages--item-message').textContent = data.message;
-    this.messagesList.appendChild(listItem);
+
+    const elementTitle = listItem.querySelector('.chat-messages--item-title');
+    const elementMessage = listItem.querySelector('.chat-messages--item-message');
+
+    elementMessage.textContent = data.message
 
     if (data.name === this.myName) {
-      listItem.querySelector('.chat-messages--item-title').classList.add('this-is-mine');
-      listItem.querySelector('.chat-messages--item-message').classList.add('this-is-mine');
+      elementTitle.textContent = `${this.myPresentation}, ${messageDate}`;
+      elementTitle.classList.add('this-is-mine');
+      elementMessage.classList.add('this-is-mine');
+    } else {
+      elementTitle.textContent = `${data.name}, ${messageDate}`;
     }
+
+    this.messagesList.appendChild(listItem);
   }
 
   onLoginSubmit(e) {
